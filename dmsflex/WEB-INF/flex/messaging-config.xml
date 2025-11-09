@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="message-service" class="flex.messaging.services.MessageService" messageTypes="flex.messaging.messages.AsyncMessage">
+
+	<!-- DO NOT CHANGE <adapters> SECTION-->
+    <adapters>
+		<adapter-definition id="messagingAdapter" class="FluorineFx.Messaging.Services.Messaging.MessagingAdapter" default="true"/>
+    </adapters>
+
+  <default-channels>    
+    <channel ref="dms-rtmp"/>
+  </default-channels>
+  
+  <destination id="rtsapi">
+    <adapter ref="messagingAdapter"/>    
+    <properties>
+      <source>*</source>
+      <network>
+        <!-- The session-timeout element specifies the idle time in minutes before a subscriber is unsubscribed. When you set the value to 0 (zero), subscribers are not forced to unsubscribe automatically. The default value is 20. -->
+        <session-timeout>20</session-timeout>
+      </network>      
+    </properties>   
+  </destination>
+</service>

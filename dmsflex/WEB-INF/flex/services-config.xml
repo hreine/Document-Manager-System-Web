@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<services-config>
+  <services>
+    <service-include file-path="remoting-config.xml" />
+     <!--<service-include file-path="messaging-config.xml" />--> 
+     <!--<service-include file-path="data-management-config.xml" />--> 
+  </services>
+
+  <!-- Custom authentication -->
+  <security>
+    <!-- A security constraint requires that a user is authorized before accessing a destination.
+		Here you can declare security constraints globally. When several destinations 
+		use the same security settings, you should define one security constraint in the 
+		security section of the services configuration file and refer to it in each destination. 				
+		-->
+
+    <security-constraint id="privileged-users">
+      <auth-method>Custom</auth-method>
+      <roles>
+        <role>ROOT</role>
+        <role>ADMIN</role>
+      </roles>
+    </security-constraint>
+        
+    <security-constraint id="common-users">
+      <auth-method>Custom</auth-method>
+      <roles>
+        <role>ROOT</role>
+        <role>ADMIN</role>
+        <role>USUARIO</role>
+      </roles>
+    </security-constraint>    
+
+    <!--    
+		Custom login command, to check a user's credentials and log a principal into the application server
+		A login command must implement the com.TheSilentGroup.Fluorine.Messaging.Security.ILoginCommand interface
+		or inherit from com.TheSilentGroup.Fluorine.Messaging.Security.GenericLoginCommand.
+		
+		You can use a login command without security constraints defined.
+		-->
+    <!-- 
+		<login-command class="FluorineFx.Security.GenericLoginCommand" server="asp.net"/>
+		 -->
+    <login-command class="Reines.dmsflex.amf3service.LoginCommand" server="asp.net"/>
+  </security>
+  <channels>
+
+    <!--
+    <channel-definition id="dms-https" class="mx.messaging.channels.SecureAMFChannel">
+      <endpoint uri="https://{server.name}:{server.port}/{context.root}/Gateway.aspx" class="flex.messaging.endpoints.AMFEndpoint"/>
+      <properties>
+        <polling-enabled>true</polling-enabled>
+        <idle-timeout-minutes>40</idle-timeout-minutes>
+      </properties>
+    </channel-definition>
+-->
+
+    
+    <channel-definition id="dms-http" class="mx.messaging.channels.AMFChannel">
+      <endpoint uri="http://{server.name}:{server.port}/{context.root}/Gateway.aspx" class="flex.messaging.endpoints.AMFEndpoint"/>
+      <properties>
+        <polling-enabled>true</polling-enabled>
+        <idle-timeout-minutes>40</idle-timeout-minutes>
+      </properties>
+    </channel-definition>
+    
+                
+        <!--<channel-definition id="tge-rtmp" class="mx.messaging.channels.RTMPChannel">
+            <endpoint uri="rtmp://{server.name}:1935" class="flex.messaging.endpoints.RTMPEndpoint"/>
+            <properties>
+                <idle-timeout-minutes>20</idle-timeout-minutes>                
+            </properties>
+        </channel-definition>-->
+    
+  </channels>
+</services-config>

@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<service id="remoting-service" class="flex.messaging.services.RemotingService" messageTypes="flex.messaging.messages.RemotingMessage">
+
+	<!-- DO NOT CHANGE <adapters> SECTION-->
+    <adapters>
+        <adapter-definition id="dotnet" class="FluorineFx.Remoting.RemotingAdapter" default="true"/>
+    </adapters>
+    <default-channels>
+      <channel ref="dms-http"/>      
+      <!--<channel ref="dms-rtmp"/>-->
+    </default-channels>
+    
+    <!--<destination id="dms">
+        <properties>
+            <source>*</source>
+        </properties>        
+        --><!-- The following example shows a security constraint that is referenced --><!--
+        --><!--
+        <security>
+			<security-constraint ref="privileged-users"/>
+		</security>
+        --><!--        
+        --><!-- The following example shows shows a security constraint that is declared in a destination definition (inline) --><!--       				               
+    </destination>-->
+  
+  <destination id="dmslogin">
+    <properties>
+      <network>
+        <session-timeout>30</session-timeout>
+      </network>
+      <source>Reines.dmsflex.amf3service.LoginSrv</source>
+      <scope>application</scope>
+    </properties>
+   <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+
+  <destination id="dmsbrander">
+    <properties>
+      <network>
+        <session-timeout>30</session-timeout>
+      </network>
+      <source>Reines.dmsflex.amf3service.BranderSrv</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  
+
+  <destination id="dmsdatemanager">
+    <properties>
+      <network>
+        <session-timeout>30</session-timeout>
+      </network>
+      <source>Reines.dmsflex.amf3service.DatemanagerSrv</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="dmsbeforedate">
+    <properties>
+      <network>
+        <session-timeout>30</session-timeout>
+      </network>
+      <source>Reines.dmsflex.amf3service.BeforeDateSrv</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="dmstracking">
+    <properties>
+      <network>
+        <session-timeout>30</session-timeout>
+      </network>
+      <source>Reines.dmsflex.amf3service.TrackingSrv</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <!--<destination id="tgclientes">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.ClienteService</source>
+      <scope>request</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+
+  <destination id="tgsedes">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.SedeService</source>
+      <scope>request</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  <destination id="tgempleados">
+  <properties>
+    <network>
+      <session-timeout>15</session-timeout>
+    </network>
+    <source>amf3service.EmpleadoService</source>
+    <scope>session</scope>
+  </properties>
+  <security>
+    <security-constraint ref="privileged-users"/>
+  </security>
+</destination>
+
+  
+  <destination id="tgusuarios">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.UsuarioService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="privileged-users"/>      
+    </security>
+  </destination>
+  
+  <destination id="tgpreenvio">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.PreEnvioService</source>
+      <scope>application</scope>
+    </properties>
+    <security>      
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgciudades">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.CiudadService</source>      
+      <scope>session</scope>
+    </properties>
+    <security>      
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  <destination id="tgoficinas">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.OficinasService</source>
+      <scope>session</scope>
+    </properties>
+    <security>      
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  <destination id="tgcentroscostos">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.CentroCostoService</source>
+      <scope>session</scope>
+    </properties>
+    <security>      
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  <destination id="tgdestinatarios">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.DestinatariosService</source>
+      <scope>session</scope>
+    </properties>
+    <security>      
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  <destination id="tgoficinades">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.OficinaDesService</source>      
+      <scope>session</scope>
+    </properties>
+    <security>      
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  
+  <destination id="tgservicios">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.ServicioService</source>
+      <scope>session</scope>
+    </properties>
+    <security>      
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgparametros">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.ParametroService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  
+  <destination id="tgremisiones">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.RemisionService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  
+  <destination id="tgmenus">
+      <properties>
+        <network>
+          <session-timeout>15</session-timeout>
+        </network>
+        <source>amf3service.MenuService</source>
+        <scope>request</scope>
+      </properties>
+      <security>
+        <security-constraint ref="common-users"/>
+      </security>
+    </destination>
+
+    
+    <destination id="tgpermisos">
+        <properties>
+          <network>
+            <session-timeout>15</session-timeout>
+          </network>
+          <source>amf3service.PermisosMenuService</source>
+          <scope>request</scope>
+        </properties>
+        <security>
+          <security-constraint ref="common-users"/>
+        </security>
+    </destination>
+      
+  
+      <destination id="tgfileload">
+        <properties>
+          <network>
+            <session-timeout>15</session-timeout>
+          </network>
+          <source>amf3service.CargaArchivosService</source>
+          <scope>sesion</scope>
+        </properties>
+        <security>
+          <security-constraint ref="common-users"/>
+        </security>      
+    </destination>
+
+  <destination id="tgreportes">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.ReporteService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgrastreo">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.RastreoGuiaService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  
+  <destination id="tgrastreopub">
+    <properties>      
+      <source>amf3service.RastreoGuiaPubService</source>
+      <scope>request</scope>
+    </properties>
+  </destination>
+  
+
+  <destination id="tgproductotelefono">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.ProductoTelefonoService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+
+  <destination id="tgproductodireccion">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.ProductoDireccionService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgproductotercero">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.ProductoTerceroService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  
+
+  <destination id="tgagendawebservice">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.AgendaWebService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  <destination id="tgproductoservice">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.ProductoService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+
+  <destination id="tggestiontelefonica">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.GestionTelefonicaService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgprocesos">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.ProcesoService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgpreagenda">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.PreagendaService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  <destination id="tgcita">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.CitaService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+
+  <destination id="tglegalizacion">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.LegalizacionService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgfileservice">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.FileService</source>
+      <scope>sesion</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  
+  <destination id="tgcontacto">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.ContactoService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  <destination id="tsapi">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.CtiService</source>
+      <scope>application</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tggrupo">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.GrupoService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="privileged-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgdocum">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.DocumentosService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgrad">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.RadicacionService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgdilig">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.DiliegenciaService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgventas">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.TeleventasService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+
+  <destination id="tgperfdoc">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.PerDocService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+  
+  <destination id="tgcargue">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.CargueService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>
+
+  <destination id="tgalmanaque">
+    <properties>
+      <network>
+        <session-timeout>15</session-timeout>
+      </network>
+      <source>amf3service.AlmanaqueService</source>
+      <scope>session</scope>
+    </properties>
+    <security>
+      <security-constraint ref="common-users"/>
+    </security>
+  </destination>-->
+  
+
+  <!-- Configure a destination 
+		source: Fully qualified class name of the .NET object (remote object)
+		scope: Indicates whether the object is available in the request scope, the application scope, or the session scope -->
+	<!-- 
+    <destination id="destination name">
+        <properties>
+            <source>Fully qualified class name of the .NET object</source>
+            <scope>request</scope>
+        </properties>
+    </destination>
+    -->
+</service>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67E1B5B8-7422-4189-9004-B8F66A906886}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Reines.dmsflex.amf3service</RootNamespace>
+    <AssemblyName>Reines.dmsflex.amf3service</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'deploy|AnyCPU' ">
+    <OutputPath>bin\deploy\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'produccion_csc|AnyCPU'">
+    <OutputPath>bin\produccion_csc\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'produccion_callc|AnyCPU'">
+    <OutputPath>bin\produccion_callc\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluorineFx">
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\FluorineFx\Bin\net\3.5\FluorineFx.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\FluorineFx\Bin\net\3.5\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BeforeDateSrv.cs" />
+    <Compile Include="BranderSrv.cs" />
+    <Compile Include="cl\SessionFactory.cs" />
+    <Compile Include="cl\UsuarioFactory.cs" />
+    <Compile Include="DatemanagerSrv.cs" />
+    <Compile Include="LoginCommand.cs" />
+    <Compile Include="LoginSrv.cs" />
+    <Compile Include="MaestrosSrv.cs" />
+    <Compile Include="TrackingSrv.cs" />
+    <Compile Include="vo\BranderVo.cs" />
+    <Compile Include="vo\CalendarioVo.cs" />
+    <Compile Include="vo\CargueDireccionVo.cs" />
+    <Compile Include="vo\CargueDocumentoVo.cs" />
+    <Compile Include="vo\CargueMedioVo.cs" />
+    <Compile Include="vo\CargueTelefonoVo.cs" />
+    <Compile Include="vo\CargueVo.cs" />
+    <Compile Include="vo\CitaPreviaVo.cs" />
+    <Compile Include="vo\CitaVo.cs" />
+    <Compile Include="vo\CiudadVo.cs" />
+    <Compile Include="vo\ClienteVo.cs" />
+    <Compile Include="vo\DepartamentoVo.cs" />
+    <Compile Include="vo\DocumentoVo.cs" />
+    <Compile Include="vo\EstadoCitaVo.cs" />
+    <Compile Include="vo\EstadoGestionVo.cs" />
+    <Compile Include="vo\GestionTelefonicaVo.cs" />
+    <Compile Include="vo\JornadaVo.cs" />
+    <Compile Include="vo\MedioVo.cs" />
+    <Compile Include="vo\MotTelefonicosVo.cs" />
+    <Compile Include="vo\NegocioVo.cs" />
+    <Compile Include="vo\OrdenVo.cs" />
+    <Compile Include="vo\CargueGestionVo.cs" />
+    <Compile Include="vo\SedeVo.cs" />
+    <Compile Include="vo\sesionVO.cs" />
+    <Compile Include="vo\ProductoVo.cs" />
+    <Compile Include="vo\TipoCitaVo.cs" />
+    <Compile Include="vo\TrackingVo.cs" />
+    <Compile Include="vo\UsuarioVo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ReinesUtils\Reines.csproj">
+      <Project>{5c3e3de0-3793-4874-8a0d-c8bfd35db290}</Project>
+      <Name>Reines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{1a2a83d2-828e-445b-a190-ce8d92a97486}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dao\Dao.csproj">
+      <Project>{ca05a94b-4eff-4124-b396-0f3a071f909d}</Project>
+      <Name>Dao</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

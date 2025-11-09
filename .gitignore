@@ -1,0 +1,57 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio temporary files
+*.suo
+*.user
+*.builds
+*.log
+*.pdb
+*.opendb
+*.vspscc
+*.vssscc
+*.vsscc
+*.bak
+*.scc
+*.vshost.*
+*.cache
+*.obj
+*.ilk
+*.aps
+*.bsc
+*.sbr
+*.pch
+*.res
+*.exp
+*.lib
+*.ncb
+*.sdf
+*.tlog
+*.ipch
+*.manifest
+*.lastbuildstate
+*.mdf
+*.ldf
+*.orig
+
+# NuGet packages
+packages/
+
+# Resharper
+*.resharper
+*.DotSettings
+
+# Test results
+TestResults/
+
+# Azure WebSites
+_PublishedWebsites/
+
+# Ignore all files in the web_dll folder
+web_dll/
+
+# Ignore the dmsflex.v11.suo file
+dmsflex.v11.suo
