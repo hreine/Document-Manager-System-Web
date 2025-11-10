@@ -73,3 +73,17 @@ Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, por fa
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+## Enlaces de Videos de su funcionamiento
+
+https://youtu.be/t8eIc9wjXcg
+https://youtu.be/gdFTfAXycXM
+https://youtu.be/N-R_H_yuDIU
+https://youtu.be/M6of8gN-xKE
+https://youtu.be/HmFam_de_RM
+https://youtu.be/B3CbBjlUj0E
+https://youtu.be/eb3EWie5sYU
+https://youtu.be/CBVxo_tmAVo
+
+
+
